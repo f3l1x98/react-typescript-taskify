@@ -63,12 +63,22 @@ const App: React.FC = () => {
       <div className="App">
         <span className="heading">Taskify</span>
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-        <TodoList
-          todos={todos}
-          setTodos={setTodos}
-          CompletedTodos={CompletedTodos}
-          setCompletedTodos={setCompletedTodos}
-        />
+        <div className="todolist__container">
+          <TodoList
+            todos={todos}
+            setTodos={setTodos}
+            droppableId="TodosList"
+            heading="Active Tasks"
+            isRemove={false}
+          />
+          <TodoList
+            todos={CompletedTodos}
+            setTodos={setCompletedTodos}
+            droppableId="TodosRemove"
+            heading="Completed Tasks"
+            isRemove={true}
+          />
+        </div>
       </div>
     </DragDropContext>
   );
